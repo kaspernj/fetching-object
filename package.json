@@ -1,0 +1,23 @@
+{
+  "name": "fetching-object",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaspernj/fetching-object.git"
+  },
+  "author": "k@spernj.org",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaspernj/fetching-object/issues"
+  },
+  "homepage": "https://github.com/kaspernj/fetching-object#readme",
+  "devDependencies": {
+    "jasmine": "^4.2.1"
+  }
+}

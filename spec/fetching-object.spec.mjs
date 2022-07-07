@@ -15,11 +15,11 @@ describe("fetchingObject", () => {
     expect(kasper.firstName).toEqual("Kasper")
   })
 
-  fit("throws an error when fetching a key that doesnt exist on an array", () => {
+  it("throws an error when fetching a key that doesnt exist on an array", () => {
     expect(() => { people[2] }).toThrow(new Error("Property not found: 2"))
   })
 
-  fit("allows fetching a key that exists on an object", () => {
+  it("allows fetching a key that exists on an object", () => {
     expect(people[0]).toEqual("Kasper")
     expect(people[1]).toEqual("Christina")
   })

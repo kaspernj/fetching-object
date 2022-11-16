@@ -6,18 +6,18 @@ class PropertyNotFoundError extends Error {
 }
 
 const fetchingObjectHandler = {
-  get(_target, prop, receiver) {
+  get(receiver, prop) {
+    if (typeof receiver == "function") receiver = receiver()
     if (!(prop in receiver)) throw new PropertyNotFoundError(`Property not found: ${prop}`)
 
-    return Reflect.get(...arguments)
+    return Reflect.get(receiver, prop)
   },
 
   set(receiver, prop, newValue) {
+    if (typeof receiver == "function") receiver = receiver()
     if (!(prop in receiver)) throw new PropertyNotFoundError(`Property not found: ${prop}`)
 
-    receiver[prop] = newValue
-
-    return true
+    return Reflect.set(receiver, prop, newValue)
   }
 }
 

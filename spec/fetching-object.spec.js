@@ -1,4 +1,4 @@
-import fetchingObject from "../index.mjs"
+import fetchingObject from "../src/index.js"
 
 const kasper = fetchingObject({
   firstName: "Kasper"

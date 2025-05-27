@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/kaspernj/fetching-object#readme",
   "devDependencies": {
-    "jasmine": "^4.2.1"
+    "jasmine": "^5.7.1"
   }
 }

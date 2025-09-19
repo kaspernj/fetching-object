@@ -8,6 +8,7 @@ class PropertyNotFoundError extends Error {
 const fetchingObjectHandler = {
   get(receiver, prop) {
     if (typeof receiver == "function") receiver = receiver()
+    if (prop == "prototype") return receiver.prototype // Prevent crashing from being scanned by things like Expo
     if (!(prop in receiver)) throw new PropertyNotFoundError(`Property not found: ${prop}`)
 
     return Reflect.get(receiver, prop)

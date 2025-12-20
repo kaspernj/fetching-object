@@ -1,4 +1,7 @@
 class PropertyNotFoundError extends Error {
+  /**
+   * @param {string} message
+   */
   constructor(message) {
     super(message)
     this.name = "PropertyNotFoundError"
@@ -6,6 +9,11 @@ class PropertyNotFoundError extends Error {
 }
 
 const fetchingObjectHandler = {
+  /**
+   * @param {any} receiver
+   * @param {string} prop
+   * @returns {any}
+   */
   get(receiver, prop) {
     if (typeof receiver == "function") receiver = receiver()
     if (prop == "prototype") return receiver.prototype // Prevent crashing from being scanned by things like Expo
@@ -14,6 +22,12 @@ const fetchingObjectHandler = {
     return Reflect.get(receiver, prop)
   },
 
+  /**
+   * @param {any} receiver
+   * @param {string} prop
+   * @param {any} newValue
+   * @returns {boolean}
+   */
   set(receiver, prop, newValue) {
     if (typeof receiver == "function") receiver = receiver()
     if (!(prop in receiver)) throw new PropertyNotFoundError(`Property not found: ${prop}`)

@@ -36,6 +36,24 @@ const fetchingObjectHandler = {
   }
 }
 
-const fetchingObject = (wrappedObject = {}) => new Proxy(wrappedObject, fetchingObjectHandler)
+/**
+ * @template {object} T
+ * @overload
+ * @param {() => T} wrappedObject
+ * @returns {T}
+ */
+/**
+ * @template {object} T
+ * @overload
+ * @param {T} wrappedObject
+ * @returns {T}
+ */
+/**
+ * @param {object} [wrappedObject]
+ * @returns {any}
+ */
+function fetchingObject(wrappedObject = {}) {
+  return /** @type {any} */ (new Proxy(wrappedObject, fetchingObjectHandler))
+}
 
 export default fetchingObject

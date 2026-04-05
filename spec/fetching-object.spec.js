@@ -19,7 +19,7 @@ describe("fetchingObject", () => {
     expect(() => { people[2] }).toThrow(new Error("Property not found: 2"))
   })
 
-  it("allows fetching a key that exists on an object", () => {
+  it("allows fetching a key that exists on an array", () => {
     expect(people[0]).toEqual("Kasper")
     expect(people[1]).toEqual("Christina")
   })

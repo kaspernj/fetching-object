@@ -11,6 +11,7 @@
   "scripts": {
     "build": "rm -rf build && tsc",
     "prepublishOnly": "npm run build",
+    "release:patch": "node scripts/release-patch.js",
     "test": "jasmine",
     "typecheck": "tsc --noEmit",
     "watch": "tsc -w"

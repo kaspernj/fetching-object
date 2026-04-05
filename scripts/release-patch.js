@@ -3,14 +3,21 @@ import {execSync} from "node:child_process"
 
 /** @param {string} command */
 function run(command) {
-  execSync(command, {stdio: "inherit"})
+  execSync(command, {
+    stdio: "inherit",
+    env: {
+      ...process.env,
+      GIT_EDITOR: "true",
+      GIT_MERGE_AUTOEDIT: "no",
+    },
+  })
 }
 
 /** Ensures the release runs from the latest local `master` synced with `origin/master`. */
 function ensureLatestMaster() {
   run("git checkout master")
   run("git fetch origin")
-  run("git merge origin/master")
+  run("git merge --no-edit --ff-only origin/master")
 }
 
 try {

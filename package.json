@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/kaspernj/fetching-object#readme",
   "devDependencies": {
-    "@types/jasmine": "^6.0.0",
+    "@types/jasmine": "^7.0.0",
     "@types/node": "^26.0.0",
     "jasmine": "^7.0.0",
     "release-patch": "^1.0.0",

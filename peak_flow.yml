@@ -1,5 +1,26 @@
 before_script:
   - npm install
-script:
-  - npm test
-  - npm run typecheck
+builds:
+  build_1:
+    name: Tests
+    paths:
+      - "**"
+      - "!**/*.md"
+      - "!tsconfig.json"
+      - "package.json"
+      - "package-lock.json"
+      - "peak_flow.yml"
+    script:
+      - npm test
+  build_2:
+    name: Typecheck
+    paths:
+      - "**"
+      - "!**/*.md"
+      - "!spec/**"
+      - "package.json"
+      - "package-lock.json"
+      - "peak_flow.yml"
+      - "tsconfig.json"
+    script:
+      - npm run typecheck

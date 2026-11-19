@@ -32,3 +32,7 @@ person.middleName // PropertyNotFoundError(`Property not found: ${prop}`)
 
 person.firstName // "Christina"
 ```
+
+## Development
+
+Run `npm test` for the Jasmine suite and `npm run typecheck` for TypeScript validation.
